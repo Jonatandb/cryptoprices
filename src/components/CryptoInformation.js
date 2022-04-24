@@ -48,6 +48,12 @@ const CryptoInformation = () => {
     inputRef.current && inputRef.current.select()
   }
 
+  const handleSearchInputOnKeyUp = event => {
+    if (event.key === 'Escape' && search !== '') {
+      setSearch('')
+    }
+  }
+
   const results = cryptoData.filter(
     crypto =>
       crypto.name.toLowerCase().includes(search?.trim().toLowerCase()) ||
@@ -62,6 +68,7 @@ const CryptoInformation = () => {
         value={search}
         onChange={onSearchChanged}
         onMouseOver={handleSearchInputOnMouseOver}
+        onKeyUp={handleSearchInputOnKeyUp}
         ref={inputRef}
         className='form-control'
       />
