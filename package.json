@@ -5,8 +5,9 @@
   "author": {
     "name": "Jonatandb",
     "email": "jonatandb@gmail.com",
-    "url": "https://github.com/Jonatandb/cryptoprices"
+    "url": "https://github.com/Jonatandb"
   },
+  "homepage": "https://github.com/Jonatandb/cryptoprices",
   "dependencies": {
     "axios": "^0.26.1",
     "react": "^18.0.0",
