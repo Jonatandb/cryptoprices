@@ -92,34 +92,42 @@ const CryptoInformation = () => {
             </tr>
           </thead>
           <tbody>
-            {results.map(crypto => (
-              <tr key={crypto.id}>
-                <td>{crypto.market_data?.market_cap_rank}</td>
-                <td>
-                  <img src={crypto.image?.thumb} alt={`${crypto.id} icon`} />
-                  {` ${crypto.name}`}
-                </td>
-                <td>{crypto.symbol?.toUpperCase()}</td>
-                <td>{crypto.market_data?.current_price?.bmd?.toFixed(2)}</td>
-                <td>
-                  {crypto.market_data?.price_change_percentage_24h > 0 ? (
-                    <span className='badge bg-success'>
-                      {crypto.market_data?.price_change_percentage_24h.toFixed(
-                        2,
-                      )}
-                      %
-                    </span>
-                  ) : (
-                    <span className='badge bg-danger'>
-                      {crypto.market_data?.price_change_percentage_24h.toFixed(
-                        2,
-                      )}
-                      %
-                    </span>
-                  )}
+            {search !== '' && results.length === 0 ? (
+              <tr>
+                <td colSpan='5'>
+                  <span>No results found</span>
                 </td>
               </tr>
-            ))}
+            ) : (
+              results.map(crypto => (
+                <tr key={crypto.id}>
+                  <td>{crypto.market_data?.market_cap_rank}</td>
+                  <td>
+                    <img src={crypto.image?.thumb} alt={`${crypto.id} icon`} />
+                    {` ${crypto.name}`}
+                  </td>
+                  <td>{crypto.symbol?.toUpperCase()}</td>
+                  <td>{crypto.market_data?.current_price?.bmd?.toFixed(2)}</td>
+                  <td>
+                    {crypto.market_data?.price_change_percentage_24h > 0 ? (
+                      <span className='badge bg-success'>
+                        {crypto.market_data?.price_change_percentage_24h.toFixed(
+                          2,
+                        )}
+                        %
+                      </span>
+                    ) : (
+                      <span className='badge bg-danger'>
+                        {crypto.market_data?.price_change_percentage_24h.toFixed(
+                          2,
+                        )}
+                        %
+                      </span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       )}
