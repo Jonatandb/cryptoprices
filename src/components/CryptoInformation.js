@@ -53,7 +53,7 @@ const CryptoInformation = () => {
     <>
       <input
         type='text'
-        placeholder='Type currency name...'
+        placeholder='Type currency name or symbol...'
         value={search}
         onChange={onSearchChanged}
         ref={inputRef}
@@ -90,14 +90,14 @@ const CryptoInformation = () => {
                 <td>{crypto.market_data?.current_price?.bmd?.toFixed(2)}</td>
                 <td>
                   {crypto.market_data?.price_change_percentage_24h > 0 ? (
-                    <span className='text-success'>
+                    <span className='badge bg-success'>
                       {crypto.market_data?.price_change_percentage_24h.toFixed(
                         2,
                       )}
                       %
                     </span>
                   ) : (
-                    <span className='text-danger'>
+                    <span className='badge bg-danger'>
                       {crypto.market_data?.price_change_percentage_24h.toFixed(
                         2,
                       )}
