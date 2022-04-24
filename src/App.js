@@ -2,8 +2,8 @@ import './App.css'
 
 function App() {
   return (
-    <div className='App'>
-      <h1>Crypto Prices</h1>
+    <div className='container-fluid'>
+      <h1 className='text-center'>Cryptocurrency Prices</h1>
     </div>
   )
 }
