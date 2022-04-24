@@ -43,6 +43,12 @@ const CryptoInformation = () => {
     setSearch(event.target.value)
   }
 
+  const results = cryptoData.filter(
+    crypto =>
+      crypto.name.toLowerCase().includes(search?.trim().toLowerCase()) ||
+      crypto.symbol.toLowerCase().includes(search?.trim().toLowerCase()),
+  )
+
   return (
     <>
       <input
@@ -72,6 +78,36 @@ const CryptoInformation = () => {
               <th>Price 24h</th>
             </tr>
           </thead>
+          <tbody>
+            {results.map(crypto => (
+              <tr key={crypto.id}>
+                <td>{crypto.market_data?.market_cap_rank}</td>
+                <td>
+                  <img src={crypto.image?.thumb} alt={`${crypto.id} icon`} />
+                  {` ${crypto.name}`}
+                </td>
+                <td>{crypto.symbol?.toUpperCase()}</td>
+                <td>{crypto.market_data?.current_price?.bmd?.toFixed(2)}</td>
+                <td>
+                  {crypto.market_data?.price_change_percentage_24h > 0 ? (
+                    <span className='text-success'>
+                      {crypto.market_data?.price_change_percentage_24h.toFixed(
+                        2,
+                      )}
+                      %
+                    </span>
+                  ) : (
+                    <span className='text-danger'>
+                      {crypto.market_data?.price_change_percentage_24h.toFixed(
+                        2,
+                      )}
+                      %
+                    </span>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       )}
     </>
