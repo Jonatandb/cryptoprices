@@ -1,6 +1,8 @@
-# Crypto Prices
+# [Crypto Prices](https://jonatandb.github.io/cryptoprices/)
 
 React app that shows crypto currency prices by using CoinGecko API.
+
+URL: https://jonatandb.github.io/cryptoprices/
 
 ---
 
