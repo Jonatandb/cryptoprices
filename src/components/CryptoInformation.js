@@ -43,6 +43,11 @@ const CryptoInformation = () => {
     setSearch(event.target.value)
   }
 
+  const handleSearchInputOnMouseOver = () => {
+    inputRef.current && inputRef.current.focus()
+    inputRef.current && inputRef.current.select()
+  }
+
   const results = cryptoData.filter(
     crypto =>
       crypto.name.toLowerCase().includes(search?.trim().toLowerCase()) ||
@@ -56,6 +61,7 @@ const CryptoInformation = () => {
         placeholder='Type currency name or symbol...'
         value={search}
         onChange={onSearchChanged}
+        onMouseOver={handleSearchInputOnMouseOver}
         ref={inputRef}
         className='form-control'
       />
